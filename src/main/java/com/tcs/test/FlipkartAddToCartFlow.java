@@ -1,7 +1,5 @@
 package com.tcs.test;
 
-import java.util.List;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -34,7 +32,22 @@ public class FlipkartAddToCartFlow {
 		
 	}
 
-
+	private static void logout() throws InterruptedException {
+		
+		Thread.sleep(1000);
+		
+		//
+		
+		WebElement myAccountBox=driver.findElement(By.cssSelector("div [class=exehdJ]"));
+		Actions actions = new Actions(driver);
+		actions.moveToElement(myAccountBox).build().perform();
+		
+		Thread.sleep(1000);
+		
+		WebElement logoutButton =driver.findElement(By.cssSelector("a[href*=\"#\"]"));
+		logoutButton.click();
+		//actions.moveToElement(myAccountBox);("div [class=3vhnxf]")
+	}
 
 	private static void login(String username,String password) throws InterruptedException {
 		
